@@ -1,0 +1,22 @@
+pipeline {
+ 
+   agent { label 'master' }
+  stages{
+    stage('Checkout') {
+        steps {
+              git 'https://github.com/patilb/jenkins-ci-template.git'
+          }
+  }
+  stage('Restore packages'){
+   steps{
+      bat "dotnet restore ${WORKSPACE}/ProjectSystem.sln"
+     }
+  }
+  stage('Build'){
+   steps{
+      bat "dotnet build ${WORKSPACE}/ProjectSystem.sln"
+     }
+  }
+
+}
+}

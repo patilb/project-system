@@ -4,6 +4,7 @@ pipeline {
   stages{
     stage('Checkout') {
         steps {
+              cleanWs()
               git 'https://github.com/patilb/jenkins-ci-template.git'
           }
   }

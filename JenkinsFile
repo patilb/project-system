@@ -4,8 +4,8 @@ pipeline {
   stages{
     stage('Checkout') {
         steps {
-              step([$class: 'WsCleanup'])
-              git 'https://github.com/patilb/jenkins-ci-template.git'
+              
+              checkout scm
           }
   }
   stage('Restore packages'){
